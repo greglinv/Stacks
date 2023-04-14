@@ -7,14 +7,17 @@ using namespace std;
 
 namespace KW {
 
+    //Check is character is a operator
     bool isOperator(char ch) {
         return ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '%';
     }
 
+    //Check is character is a Operand
     bool isOperand(char ch) {
         return (ch >= '0' && ch <= '9');
     }
-
+    
+    //Check for order of operations
     int precedence(char ch) {
         if (ch == '+' || ch == '-') {
             return 1;
@@ -27,6 +30,7 @@ namespace KW {
         }
     }
 
+    //return if the input is balanced or not
     bool isBalanced(string exp) {
         stack<char> s;
 
@@ -49,6 +53,7 @@ namespace KW {
         return s.empty();
     }
 
+    //Convert the input form infix to postfix
     string infixToPostfix(string exp) {
         stack<char> s;
         string result = "";
